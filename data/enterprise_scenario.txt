@@ -1,0 +1,25 @@
+# Meeting Notes: Enterprise Strategy - Apex FinTech Solutions
+**Date:** Oct 14, 2025
+**Attendees:** Sarah (CTO), Marcus (Head of Platform), David (Solutions Engineer)
+
+## Current State & Challenges
+Apex FinTech is currently migrating 120 legacy settlement applications from on-premise VMWare to AWS EKS. They are struggling with "Secret Sprawl" — developers are hardcoding database credentials in GitLab CI variables and S3 buckets.
+
+## Technical Requirements
+1.  **Orchestration:** Primary compute is EKS (Kubernetes 1.29). They need a way to inject secrets into pods without the application knowing about Vault (Sidecar vs CSI driver?).
+2.  **Database Security:** They use AWS Aurora (PostgreSQL). They want to move away from static usernames/passwords to dynamic, short-lived credentials that rotate every 15 minutes.
+3.  **CI/CD Pipeline:** Currently using GitLab CI. They want the runner to authenticate to Vault to fetch secrets during build time, but they want to stop using long-lived API tokens for the runners. (Mention JWT/OIDC auth?).
+4.  **Compliance:** As a financial institution, they require PCI-DSS compliance. 
+    - *Constraint:* The Vault UI must not be accessible via public internet.
+    - *Constraint:* Root tokens must be disabled immediately after initialization.
+    - *Constraint:* They are asking if they can store the Vault Audit Logs in the same S3 bucket as the Terraform State (I told them this sounds risky).
+
+## Open Questions for Architecture
+- How do we handle "Auto-Unseal" on AWS? They checked the docs but are confused between KMS and Transit Auto-unseal.
+- They are using Terraform Cloud for state management but want to use Vault to generate dynamic AWS credentials for the Terraform run itself. Is this possible?
+- They heard about "Sentinel" for policy enforcement. Can we control what size EC2 instances developers can launch?
+
+## Action Items
+- Propose a High-Availability Vault Architecture for EKS.
+- Validate if Audit Logs and State should share storage (Risk Assessment).
+- Provide a guide on configuring the Vault Kubernetes Auth Method.
