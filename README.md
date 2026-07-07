@@ -38,6 +38,9 @@ You need Python 3.9+ and a Google API key with access to Gemini.
 
 ```bash
 pip install -r requirements.txt
+# requirements.txt is missing two transitive deps the scripts import — install
+# them too until the pinning fix lands (see Rough edges):
+pip install langchain-community google-generativeai
 export GOOGLE_API_KEY="your_key_here"
 ```
 
