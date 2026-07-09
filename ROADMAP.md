@@ -14,9 +14,6 @@ agent; that one is call-transcript intelligence.
 
 ## Next up
 
-- [ ] Rewrite the README in first person: what it does, how to run it, what
-      I learned building the LangGraph loop, honest rough edges. Cut the
-      generic overview prose.
 - [ ] Add `.env.example` and pin versions in `requirements.txt` so a fresh
       clone actually installs and runs.
 - [ ] Citations: answers from `knowledge_agent.py` should list the source
@@ -39,4 +36,5 @@ agent; that one is call-transcript intelligence.
 
 ## Done
 
-Nothing yet — file added 2026-07-02.
+- [x] Rewrite the README in first person: what it does, how to run it, what
+      I learned building the LangGraph loop, honest rough edges. (2026-07-07)
