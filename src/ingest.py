@@ -3,7 +3,9 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from dotenv import load_dotenv
 
+load_dotenv()
 if not os.environ.get("GOOGLE_API_KEY"):
     raise ValueError("Please set your GOOGLE_API_KEY environment variable!")
 

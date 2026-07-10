@@ -6,8 +6,10 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 import sys
 import argparse
+from dotenv import load_dotenv
 
 # Environment Check
+load_dotenv()
 if not os.environ.get("GOOGLE_API_KEY"):
     raise ValueError("Please set your GOOGLE_API_KEY environment variable!")
 

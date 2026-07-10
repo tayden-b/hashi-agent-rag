@@ -9,8 +9,10 @@ from langchain_chroma import Chroma
 from langgraph.graph import StateGraph, END, START
 from langgraph.prebuilt import ToolNode
 from langgraph.graph.message import add_messages
+from dotenv import load_dotenv
 
 # Environment Validation
+load_dotenv()
 if not os.environ.get("GOOGLE_API_KEY"):
     raise ValueError("Set GOOGLE_API_KEY environment variable!")
 
