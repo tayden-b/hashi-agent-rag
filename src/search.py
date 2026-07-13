@@ -2,8 +2,10 @@ import os
 import argparse
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_chroma import Chroma
+from dotenv import load_dotenv
 
 # API Key Check
+load_dotenv()
 if not os.environ.get("GOOGLE_API_KEY"):
     raise ValueError("set GOOGLE_API_KEY environment variable")
 

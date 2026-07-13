@@ -1,6 +1,8 @@
 import os
 import google.generativeai as genai
+from dotenv import load_dotenv
 
+load_dotenv()
 if not os.environ.get("GOOGLE_API_KEY"):
     raise ValueError("Set GOOGLE_API_KEY first!")
 

@@ -38,9 +38,13 @@ You need Python 3.9+ and a Google API key with access to Gemini.
 
 ```bash
 pip install -r requirements.txt
-# requirements.txt is missing two transitive deps the scripts import — install
-# them too until the pinning fix lands (see Rough edges):
-pip install langchain-community google-generativeai
+cp .env.example .env   # then put your key in it
+```
+
+The scripts load `.env` automatically. If you'd rather not use a file, export
+the key instead:
+
+```bash
 export GOOGLE_API_KEY="your_key_here"
 ```
 
@@ -95,10 +99,6 @@ printing. That took a minute to track down.
 
 ## Rough edges
 
-- `requirements.txt` isn't version-pinned and is missing a couple of transitive
-  deps the scripts actually import (`langchain-community` for the web loader,
-  `google-generativeai` for `check_models.py`). A fresh clone may need those
-  installed by hand until I fix the pinning. This is next on the roadmap.
 - The ingest URL list is hardcoded. If HashiCorp moves a page, ingestion just
   skips it silently.
 - No citations yet — the agent answers from retrieved chunks but doesn't tell

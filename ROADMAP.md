@@ -14,8 +14,6 @@ agent; that one is call-transcript intelligence.
 
 ## Next up
 
-- [ ] Add `.env.example` and pin versions in `requirements.txt` so a fresh
-      clone actually installs and runs.
 - [ ] Citations: answers from `knowledge_agent.py` should list the source
       URLs/sections of the chunks they used. A knowledge agent without
       sources is a liability.
@@ -36,5 +34,8 @@ agent; that one is call-transcript intelligence.
 
 ## Done
 
+- [x] Add `.env.example` and pin versions in `requirements.txt` so a fresh
+      clone actually installs and runs. Also load `.env` automatically and add
+      the two deps the scripts imported but weren't listed. (2026-07-10)
 - [x] Rewrite the README in first person: what it does, how to run it, what
       I learned building the LangGraph loop, honest rough edges. (2026-07-07)
