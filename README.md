@@ -13,7 +13,7 @@ Two entry points, one shared knowledge base:
 - **`src/knowledge_agent.py`** — the main one. A LangGraph agent that decides
   for itself whether to search the docs before answering, then loops back with
   what it found. Ask it a Vault/Terraform question, get an answer grounded in
-  the ingested docs.
+  the ingested docs, with the source pages it drew from listed underneath.
 - **`src/account_planner.py`** — a simpler linear RAG chain. Feed it raw
   meeting notes and it drafts an account-strategy markdown doc, validating the
   customer's goals against the docs and flagging risks. No agent loop, just
@@ -101,11 +101,11 @@ printing. That took a minute to track down.
 
 - The ingest URL list is hardcoded. If HashiCorp moves a page, ingestion just
   skips it silently.
-- No citations yet — the agent answers from retrieved chunks but doesn't tell
-  you which pages they came from. For a knowledge agent that's a real gap, and
-  it's high on the roadmap.
-- No tests or eval harness yet. I can't currently *measure* whether an answer
-  is grounded or whether retrieval hit the right pages. That's the direction I
-  most want to take this.
+- No eval harness yet. Citations now tell you which pages an answer used, but
+  I still can't *measure* retrieval hit-rate or answer quality against a golden
+  set. That's the direction I most want to take this next.
+- The inline citations depend on the model following instructions; the Sources
+  footer under each answer is derived directly from what the tool retrieved, so
+  that part is reliable regardless.
 
 See [ROADMAP.md](ROADMAP.md) for what's planned.

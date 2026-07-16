@@ -14,9 +14,6 @@ agent; that one is call-transcript intelligence.
 
 ## Next up
 
-- [ ] Citations: answers from `knowledge_agent.py` should list the source
-      URLs/sections of the chunks they used. A knowledge agent without
-      sources is a liability.
 - [ ] Eval harness: a golden set of ~15 Vault/Terraform questions with
       expected source pages, a script that scores retrieval hit-rate and
       uses an LLM judge for answer quality, results printed as a table.
@@ -34,6 +31,12 @@ agent; that one is call-transcript intelligence.
 
 ## Done
 
+- [x] Citations: the search tool now tags each retrieved chunk with its source
+      and returns the source list as the tool artifact. The agent cites inline,
+      and `run_agent` prints a deduped "Sources" footer built from what was
+      actually retrieved (so it's reliable even if the model forgets to cite).
+      Source formatting lives in `src/citations.py` and is covered by
+      `tests/test_citations.py` — no network or API key needed. (2026-07-13)
 - [x] Add `.env.example` and pin versions in `requirements.txt` so a fresh
       clone actually installs and runs. Also load `.env` automatically and add
       the two deps the scripts imported but weren't listed. (2026-07-10)
