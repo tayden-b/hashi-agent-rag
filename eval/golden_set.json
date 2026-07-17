@@ -1,0 +1,68 @@
+[
+  {
+    "question": "What are the major components of Vault's architecture and how do the barrier and storage backend relate?",
+    "sources": ["https://developer.hashicorp.com/vault/docs/internals/architecture"]
+  },
+  {
+    "question": "How does Vault's security model protect secrets at rest and in memory?",
+    "sources": ["https://developer.hashicorp.com/vault/docs/internals/security"]
+  },
+  {
+    "question": "What authentication methods does Vault support and how does the auth workflow work conceptually?",
+    "sources": ["https://developer.hashicorp.com/vault/docs/concepts/auth"]
+  },
+  {
+    "question": "What is a lease in Vault and how do lease renewal and revocation work?",
+    "sources": ["https://developer.hashicorp.com/vault/docs/concepts/lease"]
+  },
+  {
+    "question": "What is the difference between service tokens and batch tokens in Vault?",
+    "sources": ["https://developer.hashicorp.com/vault/docs/concepts/tokens"]
+  },
+  {
+    "question": "What are the recommended production hardening steps for a Vault deployment?",
+    "sources": [
+      "https://developer.hashicorp.com/vault/docs/concepts/production-hardening",
+      "https://developer.hashicorp.com/vault/tutorials/operations/production-hardening"
+    ]
+  },
+  {
+    "question": "How do I configure telemetry and metrics for a Vault server?",
+    "sources": ["https://developer.hashicorp.com/vault/docs/configuration/telemetry"]
+  },
+  {
+    "question": "How does Vault Enterprise replication work between clusters?",
+    "sources": ["https://developer.hashicorp.com/vault/docs/enterprise/replication"]
+  },
+  {
+    "question": "How do I set up the Kubernetes auth method so pods can authenticate to Vault?",
+    "sources": ["https://developer.hashicorp.com/vault/docs/auth/kubernetes"]
+  },
+  {
+    "question": "How do I use the KV version 2 secrets engine and what versioning does it provide?",
+    "sources": ["https://developer.hashicorp.com/vault/docs/secrets/kv/kv-v2"]
+  },
+  {
+    "question": "How does Vault's database secrets engine generate dynamic credentials?",
+    "sources": ["https://developer.hashicorp.com/vault/docs/secrets/database"]
+  },
+  {
+    "question": "How does Vault issue dynamic AWS credentials through the AWS secrets engine?",
+    "sources": ["https://developer.hashicorp.com/vault/docs/secrets/aws"]
+  },
+  {
+    "question": "What is Terraform's core workflow of write, plan, and apply?",
+    "sources": ["https://developer.hashicorp.com/terraform/intro/core-workflow"]
+  },
+  {
+    "question": "How should I structure a reusable Terraform module?",
+    "sources": ["https://developer.hashicorp.com/terraform/language/modules/develop/structure"]
+  },
+  {
+    "question": "How do I configure remote state and state locking in Terraform?",
+    "sources": [
+      "https://developer.hashicorp.com/terraform/language/state/remote",
+      "https://developer.hashicorp.com/terraform/language/state/locking"
+    ]
+  }
+]

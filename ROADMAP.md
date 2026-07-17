@@ -14,10 +14,6 @@ agent; that one is call-transcript intelligence.
 
 ## Next up
 
-- [ ] Eval harness: a golden set of ~15 Vault/Terraform questions with
-      expected source pages, a script that scores retrieval hit-rate and
-      uses an LLM judge for answer quality, results printed as a table.
-      This is the highest-leverage item in the repo.
 - [ ] Tests for `ingest.py` chunking (sizes, overlap, metadata) on a fixture
       doc — no network, no API key.
 - [ ] CI: lint + tests on push.
@@ -31,6 +27,18 @@ agent; that one is call-transcript intelligence.
 
 ## Done
 
+- [x] Eval harness: `eval/golden_set.json` holds 15 Vault/Terraform questions,
+      each with the doc page(s) that should answer it. `eval/run_eval.py` scores
+      two things per question — retrieval hit-rate (did top-k retrieval surface
+      an expected source page?) and answer quality (an LLM judge grades the
+      agent's answer 1-5) — and prints a table plus aggregate hit-rate and mean
+      quality. The scoring/parsing/formatting lives in `eval/scoring.py`, kept
+      free of network and API keys and covered by `tests/test_eval_scoring.py`
+      (10 tests). `run_agent` now returns its answer + sources so the eval scores
+      the real pipeline. Running the live eval needs GOOGLE_API_KEY and a built
+      vector DB (`python src/ingest.py`). The retrieval-quality/reranking pass in
+      "Later" is the natural follow-up, now that there are numbers to move.
+      (2026-07-17)
 - [x] Citations: the search tool now tags each retrieved chunk with its source
       and returns the source list as the tool artifact. The agent cites inline,
       and `run_agent` prints a deduped "Sources" footer built from what was

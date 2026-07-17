@@ -150,6 +150,10 @@ def run_agent(user_input):
     if footer:
         print("\n" + footer)
 
+    # Return the answer and the sources actually retrieved so callers (the eval
+    # harness) can score the real pipeline instead of re-implementing it.
+    return final_response, sources
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--query", type=str, default="How do I configure Vault for EKS with high security?")
